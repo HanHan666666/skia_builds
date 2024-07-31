@@ -143,4 +143,4 @@ $(
   "--args=" + Object.entries(BUILD_ARGS).map(([k, v]) => `${k}=${v}`).join(" "),
 );
 
-$("ninja.bat", "-j 24", "-C", "out/Release");
+$("ninja", "-j 24", "-C", "out/Release");
