@@ -117,7 +117,7 @@ if (!Deno.args.includes("skip-sync-deps")) {
     "./tools/git-sync-deps",
   );
 }
-
+$("python", "bin/fetch-ninja");
 // if (Deno.build.os === "windows") {
 //   const SkLoadICU = new URL(
 //     "./skia/third_party/icu/SkLoadICU.cpp",
