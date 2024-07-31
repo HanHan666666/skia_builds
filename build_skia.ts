@@ -143,4 +143,4 @@ $(
   "--args=" + Object.entries(BUILD_ARGS).map(([k, v]) => `${k}=${v}`).join(" "),
 );
 
-$("ninja", "-j 24", "-C", "out/Release");
+$("python","./ninja.py", "-j 24", "-C", "out/Release");
