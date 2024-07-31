@@ -54,7 +54,7 @@ jobs:
           cd depot_tools
           7z x ../depot_tools.zip
           cd ..
-          echo "PATH=$($PWD)\depot_tools;$env:PATH" >> $env:GITHUB_ENV
+          # echo "PATH=$($PWD)\depot_tools;$env:PATH" >> $env:GITHUB_ENV
 
         
       # - name: Install dependencies (Linux)
