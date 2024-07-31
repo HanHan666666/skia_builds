@@ -118,23 +118,23 @@ if (!Deno.args.includes("skip-sync-deps")) {
   );
 }
 
-if (Deno.build.os === "windows") {
-  const SkLoadICU = new URL(
-    "./skia/third_party/icu/SkLoadICU.cpp",
-    import.meta.url,
-  );
-  const original = Deno.readTextFileSync(SkLoadICU);
-  Deno.writeTextFileSync(
-    SkLoadICU,
-    original.replace(
-      `load_from(executable_directory()) || load_from(library_directory());`,
-      `load_from(library_directory()) || load_from(executable_directory());`,
-    ),
-  );
-  window.onunload = () => {
-    Deno.writeTextFileSync(SkLoadICU, original);
-  };
-}
+// if (Deno.build.os === "windows") {
+//   const SkLoadICU = new URL(
+//     "./skia/third_party/icu/SkLoadICU.cpp",
+//     import.meta.url,
+//   );
+//   const original = Deno.readTextFileSync(SkLoadICU);
+//   Deno.writeTextFileSync(
+//     SkLoadICU,
+//     original.replace(
+//       `load_from(executable_directory()) || load_from(library_directory());`,
+//       `load_from(library_directory()) || load_from(executable_directory());`,
+//     ),
+//   );
+//   window.onunload = () => {
+//     Deno.writeTextFileSync(SkLoadICU, original);
+//   };
+// }
 
 $(
   new URL("./skia/bin/gn", import.meta.url),
