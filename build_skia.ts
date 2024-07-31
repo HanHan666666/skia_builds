@@ -13,7 +13,7 @@ const BUILD_ARGS: Record<string, any> = {
   skia_use_lua: false,
   skia_use_piex: false,
   is_debug: false,
-  is_component_build: false,
+  is_component_build: true,
   skia_enable_gpu: true,
   skia_use_gl: true,
   // skia_use_harfbuzz: true,
@@ -51,7 +51,7 @@ if (Deno.build.os === "windows") {
   BUILD_ARGS["clang_win"] = '"C:\\\\Program Files\\\\LLVM"';
 
   BUILD_ARGS["extra_cflags_cc"] += '"/std:c++17",' +
-    '"/MT",' +
+    '"/MD",' +
     '"-DSK_FORCE_RASTER_PIPELINE_BLITTER",' +
     '"-DSK_ENABLE_SVG",' +
     '"-DSK_RELEASE",' +
