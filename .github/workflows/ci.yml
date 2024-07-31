@@ -55,14 +55,16 @@ jobs:
           7z x ../depot_tools.zip
           cd ..
           echo "PATH=$env:GITHUB_WORKSPACE\depot_tools;$env:PATH" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-      - name:
-        - uses: actions/checkout@master
-        - uses: seanmiddleditch/gha-setup-ninja@master
-        - run: |
+
+      - name: Checkout Repository
+        uses: actions/checkout@master
+
+      - name: Setup and Build
+        run: |
           mkdir build
           cd build
           cmake -G Ninja ..
-        - run: cmake --build build
+          cmake --build build
         
       # - name: Install dependencies (Linux)
       #   if: runner.os == 'Linux'
