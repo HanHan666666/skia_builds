@@ -34,7 +34,7 @@ jobs:
           repository: google/skia
           # ref: 2290b0b75a8abb80e23d9cb9aced5b5cebbf702d
           path: skia
-      
+
       - name: Get Skia Commit Hash
         id: vars
         shell: bash
@@ -55,7 +55,15 @@ jobs:
           7z x ../depot_tools.zip
           cd ..
           echo "PATH=$env:GITHUB_WORKSPACE\depot_tools;$env:PATH" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-
+      - name:
+        - uses: actions/checkout@master
+        - uses: seanmiddleditch/gha-setup-ninja@master
+        - run: |
+          mkdir build
+          cd build
+          cmake -G Ninja ..
+        - run: cmake --build build
+        
       # - name: Install dependencies (Linux)
       #   if: runner.os == 'Linux'
       #   run: |
