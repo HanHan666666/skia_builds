@@ -69,7 +69,10 @@ jobs:
       #     brew install ninja
 
       - name: Build Skia
-        run: deno run -A --unstable build_skia.ts
+        run: |
+          ls
+          pwd
+          deno run -A --unstable build_skia.ts
         
       # - name: Zip (Unix)
       #   if: runner.os != 'Windows'
